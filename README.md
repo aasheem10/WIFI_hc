@@ -12,16 +12,37 @@ Production-ready, modular Node.js backend for an AI-powered goal tracking SaaS.
 - Scheduled reminders and inactive-user notifications via cron
 - Security with Helmet, CORS, rate limiter, and express-validator
 
+## Where to run it
+Run all commands from the project root:
+
+```bash
+/workspace/WIFI_hc
+```
+
 ## Setup
-1. Copy `.env.example` to `.env`
-2. Install dependencies:
+1. From `/workspace/WIFI_hc`, copy `.env.example` to `.env`
+2. Fill required values in `.env` (at minimum `MONGO_URI` and `JWT_SECRET`)
+3. Install dependencies:
    ```bash
    npm install
    ```
-3. Run server:
+4. Start in development mode:
    ```bash
    npm run dev
    ```
+5. Or start in production mode:
+   ```bash
+   npm start
+   ```
+
+## Quick run checklist
+- MongoDB must be running and reachable by `MONGO_URI`
+- Optional: add `OPENAI_API_KEY` for real AI responses
+- Optional: add `STRIPE_SECRET_KEY` for real payment flow
+- Health check after start:
+  ```bash
+  curl http://localhost:5000/health
+  ```
 
 ## API Endpoints
 - `POST /api/auth/register`
